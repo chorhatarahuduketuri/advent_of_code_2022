@@ -24,10 +24,10 @@ day_1_star_2_test_input = [(input_day_1, output_day_1_star_2)]
 
 
 @pytest.mark.parametrize("puzzle_input, output", day_1_star_1_test_input)
-def test_day1_star1(puzzle_input, output):
+def test_day_1_star_1(puzzle_input, output):
     assert day_1.compute_star_1(puzzle_input) == output
 
 
 @pytest.mark.parametrize("puzzle_input, output", day_1_star_2_test_input)
-def test_day_1_star_1(puzzle_input, output):
+def test_day_1_star_2(puzzle_input, output):
     assert day_1.compute_star_2(puzzle_input) == output

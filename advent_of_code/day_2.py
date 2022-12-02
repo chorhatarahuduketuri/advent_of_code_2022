@@ -1,14 +1,5 @@
-from settings import PUZZLE_INPUT_PATH
+from advent_of_code.settings import PUZZLE_INPUT_PATH
 
-# A: X: scores 1: rock
-# B: Y: scores 2: paper
-# C: Z: scores 3: scissors
-
-# loss: 0
-# draw: 3
-# win: 6
-
-# win/loss/draw dicts:
 wld = {
     "A": {
         "X": 3,
@@ -26,6 +17,23 @@ wld = {
         "Z": 3,
     },
 }
+decode_p2_play = {
+    "A": {
+        "X": "Z",
+        "Y": "X",
+        "Z": "Y",
+    },
+    "B": {
+        "X": "X",
+        "Y": "Y",
+        "Z": "Z",
+    },
+    "C": {
+        "X": "Y",
+        "Y": "Z",
+        "Z": "X",
+    },
+}
 
 shape = {
     "X": 1,
@@ -34,8 +42,11 @@ shape = {
 }
 
 
-def score_game(p1_play, p2_play) -> int:
-    return wld.get(p1_play).get(p2_play)
+def score_game(correct_encoding: bool, p1_play: str, p2_play: str) -> int:
+    if correct_encoding:
+        decoded_p2_play = decode_p2_play.get(p1_play).get(p2_play)
+        return wld.get(p1_play).get(decoded_p2_play) + score_shape(decoded_p2_play)
+    return wld.get(p1_play).get(p2_play) + score_shape(p2_play)
 
 
 def score_shape(p2_play: str) -> int:
@@ -44,11 +55,13 @@ def score_shape(p2_play: str) -> int:
 
 def compute_star_1(puzzle_input):
     return sum(
-        [
-            score_game(*x.split()) + score_shape(x[-1])
-            for x in puzzle_input.strip().split("\n")
-        ]
+        [score_game(False, *x.split()) for x in puzzle_input.strip().split("\n")]
     )
 
 
+def compute_star_2(puzzle_input):
+    return sum([score_game(True, *x.split()) for x in puzzle_input.strip().split("\n")])
+
+
 print("day  2, star  1: ", compute_star_1(open(PUZZLE_INPUT_PATH / "day2.txt").read()))
+print("day  2, star  2: ", compute_star_2(open(PUZZLE_INPUT_PATH / "day2.txt").read()))

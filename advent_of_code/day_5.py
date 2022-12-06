@@ -22,15 +22,14 @@ def setup_stacks_from_initial_position(initial_position: str):  # -> list[list[s
 
 
 def execute_moves(stacks: list[list[str]], moves: str) -> list[list[str]]:
-    rearrangement_procedure = [
-        [int(number) for number in move.split()[1::2]] for move in moves.split("\n")
-    ]
     [
         [
             stacks[operation[2] - 1].append(stacks[operation[1] - 1].pop())
             for op in range(operation[0])
         ]
-        for operation in rearrangement_procedure
+        for operation in [
+            [int(number) for number in move.split()[1::2]] for move in moves.split("\n")
+        ]
     ]
     return stacks
 

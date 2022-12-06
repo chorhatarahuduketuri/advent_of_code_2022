@@ -11,7 +11,7 @@ move 1 from 2 to 1
 move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2"""
-output_day_5_star_1 = 'CMZ'
+output_day_5_star_1 = "CMZ"
 # output_day_5_star_2 =
 
 day_5_star_1_test_input = [(input_day_5, output_day_5_star_1)]

@@ -10,10 +10,10 @@ input_day_6 = [
     "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw",
 ]
 output_day_6_star_1 = [7, 5, 6, 10, 11]
-# output_day_6_star_2 =
+output_day_6_star_2 = [19, 23, 23, 29, 26]
 
 day_6_star_1_test_input = [(input_day_6, output_day_6_star_1)]
-# day_6_star_2_test_input = [(input_day_6, output_day_6_star_2)]
+day_6_star_2_test_input = [(input_day_6, output_day_6_star_2)]
 
 
 @pytest.mark.parametrize("puzzle_input, output", day_6_star_1_test_input)
@@ -22,6 +22,7 @@ def test_day_6_star_1(puzzle_input, output):
         assert day_6.compute_star_1(i) == o
 
 
-# @pytest.mark.parametrize("puzzle_input, output", day_6_star_2_test_input)
-# def test_day_6_star_2(puzzle_input, output):
-#     assert day_6.compute_star_2(puzzle_input) == output
+@pytest.mark.parametrize("puzzle_input, output", day_6_star_2_test_input)
+def test_day_6_star_2(puzzle_input, output):
+    for i, o in zip(puzzle_input, output):
+        assert day_6.compute_star_2(i) == o

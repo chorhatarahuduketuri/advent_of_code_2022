@@ -3,11 +3,11 @@ import pytest
 from advent_of_code import day_6
 
 input_day_6 = [
-    'mjqjpqmgbljsphdztnvjfqwrcgsmlb',
-    'bvwbjplbgvbhsrlpgdmjqwftvncz',
-    'nppdvjthqldpwncqszvftbrmjlhg',
-    'nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg',
-    'zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw',
+    "mjqjpqmgbljsphdztnvjfqwrcgsmlb",
+    "bvwbjplbgvbhsrlpgdmjqwftvncz",
+    "nppdvjthqldpwncqszvftbrmjlhg",
+    "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg",
+    "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw",
 ]
 output_day_6_star_1 = [7, 5, 6, 10, 11]
 # output_day_6_star_2 =

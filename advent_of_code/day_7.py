@@ -77,10 +77,21 @@ def compute_star_1(puzzle_input):
     return sum(size for (name, size) in dir_sizes if size <= 100000)
 
 
-# def compute_star_2(puzzle_input):
-#     return
+def compute_star_2(puzzle_input):
+    rep_loops = [
+        [split.split() for split in split_cmds.strip().split("\n")]
+        for split_cmds in puzzle_input.strip().split("$")
+        if split_cmds
+    ]
+    rep_loops.pop(0)  # Drop the root node's creation
+    root_node = Node("root", None)
+    grow_tree(root_node, rep_loops)
+    dir_sizes = map_dir_sizes(root_node, [])
+    total_disk_space = 70000000
+    space_required_for_update = 30000000
+    space_to_free_up = space_required_for_update - (total_disk_space - root_node.size)
+    return min(size for (name, size) in dir_sizes if size >= space_to_free_up)
 
 
-print(
-    "day  7, star  1: ", compute_star_1(open(PUZZLE_INPUT_PATH / "day7.txt").read())
-)  # print("day  7, star  2: ", compute_star_2(open(PUZZLE_INPUT_PATH / "day7.txt").read()))
+print("day  7, star  1: ", compute_star_1(open(PUZZLE_INPUT_PATH / "day7.txt").read()))
+print("day  7, star  2: ", compute_star_2(open(PUZZLE_INPUT_PATH / "day7.txt").read()))

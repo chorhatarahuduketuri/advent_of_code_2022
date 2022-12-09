@@ -26,10 +26,10 @@ $ ls
 5626152 d.ext
 7214296 k"""
 output_day_7_star_1 = 95437
-# output_day_7_star_2 =
+output_day_7_star_2 = 24933642
 
 day_7_star_1_test_input = [(input_day_7, output_day_7_star_1)]
-# day_7_star_2_test_input = [(input_day_7, output_day_7_star_2)]
+day_7_star_2_test_input = [(input_day_7, output_day_7_star_2)]
 
 
 @pytest.mark.parametrize("puzzle_input, output", day_7_star_1_test_input)
@@ -37,6 +37,6 @@ def test_day_7_star_1(puzzle_input, output):
     assert day_7.compute_star_1(puzzle_input) == output
 
 
-# @pytest.mark.parametrize("puzzle_input, output", day_7_star_2_test_input)
-# def test_day_7_star_2(puzzle_input, output):
-#     assert day_7.compute_star_2(puzzle_input) == output
+@pytest.mark.parametrize("puzzle_input, output", day_7_star_2_test_input)
+def test_day_7_star_2(puzzle_input, output):
+    assert day_7.compute_star_2(puzzle_input) == output
